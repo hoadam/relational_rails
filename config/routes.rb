@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "/customers", to: "customers#index"
+  get "/customers/:id", to: "customers#show"
+  get "/orders", to: "orders#index"
+  get "/orders/:id", to: "orders#show"
+  get "/customers/:id/orders", to: "customer_orders#index"
 end
