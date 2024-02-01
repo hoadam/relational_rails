@@ -7,7 +7,7 @@ class CreateCustomers < ActiveRecord::Migration[7.1]
       t.string :billing_address
       t.string :email
       t.boolean :email_marketing
-      t.integer :orders
+      t.integer :orders_count
 
       t.timestamps
     end

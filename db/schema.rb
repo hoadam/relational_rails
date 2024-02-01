@@ -21,13 +21,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_061704) do
     t.string "billing_address"
     t.string "email"
     t.boolean "email_marketing"
-    t.integer "orders"
+    t.integer "orders_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "customers_id"
+    t.bigint "customer_id"
     t.string "product"
     t.integer "price"
     t.integer "piece"
@@ -35,8 +35,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_061704) do
     t.boolean "shipped"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customers_id"], name: "index_orders_on_customers_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
-  add_foreign_key "orders", "customers", column: "customers_id"
+  add_foreign_key "orders", "customers"
 end
