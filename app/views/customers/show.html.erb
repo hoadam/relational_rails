@@ -6,7 +6,13 @@
     <li>Billing address: <%= @customer.billing_address %></li>
     <li>Email: <%= @customer.email %></li>
     <li>Email Marketing: <%= @customer.email_marketing %></li>
-    <li>Orders: <%= @customer.orders %></li>
     <li>Created at: <%= @customer.created_at %></li>
     <li>Updated at: <%= @customer.updated_at %></li>
+    <li>Total orders: <%= @total_orders %>
 </ul>
+
+<%= link_to "Edit Customer's Information",  "/customers/#{@customer.id}/edit" %><br>
+
+<%= link_to "View orders from #{@customer.name}",  "/customers/#{@customer.id}/orders" %><br>
+
+<%= link_to "Delete Customer",  "/customers/#{@customer.id}", data: {turbo_method: :delete} %><br>

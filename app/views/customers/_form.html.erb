@@ -1,0 +1,23 @@
+<div>
+<%= form_with model: @customer do |f| %>
+    <label>Name</label>
+    <%= f.text_field :name %><br>
+
+    <label>Phone</label>
+    <%= f.text_field :phone %><br>
+
+    <label>Shipping address</label>
+    <%= f.text_field :shipping_address %><br>
+
+    <label>Billing address</label>
+    <%= f.text_field :billing_address %><br>
+
+    <label>Email</label>
+    <%= f.text_field :email %><br>
+
+    <label>Subscribe to email marketing</label>
+    <%= f.check_box :email_marketing %><br>
+    
+    <%= f.submit %>
+<% end %>
+</div>

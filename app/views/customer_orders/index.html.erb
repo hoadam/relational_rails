@@ -9,5 +9,15 @@
         <li><%= order.shipped %></li>
         <li><%= order.created_at %></li>
         <li><%= order.updated_at %></li>
+        <%= link_to "Edit Order",  "/orders/#{order.id}/edit" %>
     <% end %>
 </ul>
+<%= form_with url: "/customers/#{@customer.id}/orders", method: :get do |form|%>
+    <%= form.label :filter_total_amount, "Filter Total Amount:" %>
+  <%= form.text_field :filter_total_amount %>
+  <%= form.submit "Filter" %>
+<% end %>
+<%= link_to "Sort Orders",  "/customers/#{@customer.id}/orders?sort=asc" %><br>
+
+<%= link_to "Create New Order",  "/customers/#{@customer.id}/orders/new" %><br>
+

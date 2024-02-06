@@ -1,13 +1,21 @@
 <h1>Orders</h1>
 <ul>
     <% @orders.each do |order| %>
-        <li><%= order.customer_id %></li>
-        <li><%= order.product %></li>
-        <li><%= order.price %></li>
-        <li><%= order.piece %></li>
-        <li><%= order.total_amount %></li>
-        <li><%= order.shipped %></li>
-        <li><%= order.created_at %></li>
-        <li><%= order.updated_at %></li>
+        <li>
+            <ul class="order">
+                <li><%= order.customer_id %></li>
+                <li><%= order.product %></li>
+                <li><%= order.price %></li>
+                <li><%= order.piece %></li>
+                <li><%= order.total_amount %></li>
+                <li><%= order.shipped %></li>
+                <li><%= order.created_at %></li>
+                <li><%= order.updated_at %></li>
+                <%= link_to "Edit Order",  "/orders/#{order.id}/edit" %>
+                <%= link_to "Delete Order",  "/orders/#{order.id}", data: {turbo_method: :delete}, class: "delete-order-btn" %><br>
+            </ul>
+         </li>
     <% end %>
+    <%= link_to "Shipped Orders",  "/orders?sort=shipped" %><br>
 </ul>
+
