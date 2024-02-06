@@ -3,25 +3,26 @@
     <% @customers.each do |customer| %>
         <li>
             <%= customer.name %> 
-            <%= customer.created_at %> 
-            <%= link_to "Edit Customer's Information",  "/customers/#{customer.id}/edit" %> 
-            <%= link_to "Delete Customer",  "/customers/#{customer.id}", data: {turbo_method: :delete}, class: "delete-customer-btn" %>
             <% if params[:sort] %>
                 <%= customer.order_count%>
             <%end%>
+            <%= customer.created_at %> 
+            <%= link_to "Edit Customer's Information",  "/customers/#{customer.id}/edit" %> 
+            <%= link_to "Delete Customer",  "/customers/#{customer.id}", data: {turbo_method: :delete}, class: "delete-customer-btn" %>
+            
         </li>
     <% end %>
 </ul>
 <%= form_with url: "/customers", method: :get do |form|%>
     <%= form.label :filter_by_name, "Search by name:" %>
   <%= form.text_field :filter_by_name %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search by name" %>
 <% end %><br>
 
 <%= form_with url: "/customers", method: :get do |form|%>
     <%= form.label :filter_by_partial_name, "Search by partial_name:" %>
   <%= form.text_field :filter_by_partial_name %>
-  <%= form.submit "Search" %>
+  <%= form.submit "Search by partial name" %>
 <% end %><br>
 
 <%= link_to "Create New Customer",  "/customers/new" %><br>
